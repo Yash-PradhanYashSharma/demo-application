@@ -7,8 +7,8 @@ pipeline {
                 cd demo-application
                 dir
                 kubectl version
-                kubectl apply -f deployment.yaml
-                kubectl apply -f service.yaml
+                kubectl --kubeconfig kubeconfig apply -f deployment.yaml
+                kubectl --kubeconfig kubeconfig apply -f service.yaml
             '''
          } 
       }
