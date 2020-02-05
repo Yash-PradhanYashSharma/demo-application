@@ -1,47 +1,6 @@
 pipeline {
    agent any
 
-   stages {
-      stage('Clean-up') {
-         steps {
-            
-            echo "Cleaning up the workspace" 
-         }
-      }
-      stage('Git Clone') {
-         steps {
-            
-            git  "https://github.com/Yash-PradhanYashSharma/demo-application.git"
-            
-         }
-      }
-      stage('static code analysis') {
-         steps {
-           bat '''
-                cd demo-application
-                dir
-                mvn clean install sonar:sonar
-            '''
-         } 
-      }
-      stage('Junit') {
-         steps {
-           bat '''
-                cd demo-application
-                dir
-                mvn test
-            '''
-         } 
-      }
-      stage('Build') {
-         steps {
-           bat '''
-                cd demo-application
-                dir
-                mvn clean package docker:build -DpushImage
-            '''
-         } 
-      }
       stage('Deploy') {
          steps {
            bat '''
