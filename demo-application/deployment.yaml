@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: demo-application
+  labels:
+    app: demo-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-application
+  template:
+    metadata:
+      labels:
+        app: demo-application
+    spec:
+      containers:
+      - name: demo-application
+        image: 192.168.43.129:5000/demo-application
+        ports:
+        - containerPort: 9090
