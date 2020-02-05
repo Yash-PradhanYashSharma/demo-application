@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: demo-application
-        image: 192.168.43.129:5000/demo-application
+        image: 10.26.10.34:5000/demo-application
         ports:
         - containerPort: 9090
