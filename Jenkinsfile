@@ -21,12 +21,12 @@ pipeline {
                 cd demo-application
                 dir
                 kubectl version
-                kubectl --kubeconfig config apply -f deployment.yaml 
+                kubectl apply -f deployment.yaml 
                 kubectl apply -f service.yaml
             '''
          } 
       }
-      stage('Deploy Verification') {
+/*      stage('Deploy Verification') {
          steps {
            bat '''
                 // script to check log and exception patterns
@@ -43,7 +43,7 @@ pipeline {
          } 
       }
       
-      
+  */    
       
    }
 }
